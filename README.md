@@ -32,3 +32,20 @@ If a driver is late, a toast notification will show. This includes the option to
 
 ## Other information
 The project was developed using HTML, CSS, JavaScript, Bootstrap, jQuery, and OOP (Object Oriented Programming).
+
+
+### Sources
+style.css
+- Line 78: used parts of a code snippet from https://codepen.io/Ajiva/pen/YzpNdGe for removing white background from image.
+            <img height="200" alt="code snippet" src="https://github.com/MariKristiansen/Mari_Kristiansen_sp1/assets/125880906/ead907c8-ce1e-4cfe-acb9-8a2f6365b894">
+
+wdt_app.js
+- Line 170: figured out the correct character classes from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes
+- Line 176: learned how to use "," to get a certain number or more, from the code snippet /\d{8,}/ at https://stackoverflow.com/questions/5416250/regex-contains-at-least-8-decimal-digitshttps://stackoverflow.com/questions/5416250/regex-contains-at-least-8-decimal-digits
+- Line 266: learned about the dataset property at https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes and https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
+- Line 309: https://www.tabnine.com/code/javascript/functions/builtins/setHours
+
+    <img width="350" alt="code snippet" src="https://github.com/MariKristiansen/Mari_Kristiansen_sp1/assets/125880906/de8f4995-6f39-440d-bb71-a64df83244da">
+
+- Line 386: inspirational code snippet from https://stackoverflow.com/questions/3552461/how-do-i-format-a-date-in-javascript
+    <img width="350" alt="code snippet" src="https://github.com/MariKristiansen/Mari_Kristiansen_sp1/assets/125880906/19d018c4-ee61-46cf-8199-a5e0dd122fc2">
