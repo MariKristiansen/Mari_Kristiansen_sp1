@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./Bootstrap-jQuery/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--MC ICON-->
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="Company logo.png">
+
+        <title>WeDeliverTECH</title>
+    </head>
+    <body>
+        <!--NAVBAR-->
+        <nav class="navbar nav">
+            <div class="navbar nav container-fluid collapse navbar-collapse" id="navbarNavDropDown">
+                <ul class="navbar nav div-flex flex-row h-100">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Inventory</a>
+                        <ul class="dropdown-menu">
+                            <li class="my-1"><a class="dropdown-item" href="#">Search</a></li>
+                            <li class="my-1"><a class="dropdown-item" href="#">Add</a></li>
+                            <li class="my-1"><a class="dropdown-item" href="#">Remove</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Orders</a>
+                        <ul class="dropdown-menu">
+                            <li class="my-1"><a class="dropdown-item" href="#">Search</a></li>
+                            <li class="my-1"><a class="dropdown-item" href="#">Add</a></li>
+                            <li class="my-1"><a class="dropdown-item" href="#">Remove</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--DASHBOARD-->
+        <div class="dashboard" class="container-fluid">
+            <div class="container-fluid">
+                <header class="dashboard-header">
+                    <img class="dashboard-logo" src="Company logo.png" alt="company logo">
+                    <h1>Reception Management Dashboard</h1>
+                </header>
+            </div>
+            <!--STAFF TABLE-->
+            <div class="table-container">
+                <h3>Staff</h3>
+                <table class="table table-bordered" id="staffTable">
+                    <thead>
+                        <tr>
+                            <th>Picture</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Email address</th>
+                            <th>Status</th>
+                            <th>Out time</th>
+                            <th>Duration</th>
+                            <th>Expected Return Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="button-wrapper">
+                <button id="out" onclick="staffOut()">Out</button>
+                <button id="in" onclick="staffIn()">In</button>
+            </div>
+            <!--ADD DRIVERS-->
+            <div class="table-container">
+                <h3>Schedule Delivery</h3>
+                <table class="table table-bordered" id="addDelivery">
+                    <thead>
+                        <tr>
+                            <th>Vehicle:</th>
+                            <th>Name:</th>
+                            <th>Surname:</th>
+                            <th>Telephone:</th>
+                            <th>Address:</th>
+                            <th>Return time:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="radio-icons">
+                                <label for="bike"><i class="fa fa-motorcycle" id="bikeIcon" class="icon"></i> :</label>
+                                <input type="radio" value="Motorcycle" id="bike" name="delVehicle">
+                                <label for="car"><i class="bi bi-car-front-fill" id="carIcon" class="icon"></i> :</label>
+                                <input type="radio" value="Car" id="car" name="delVehicle">
+                            </td>
+                            <td><input type="text" id="delName"></td>
+                            <td><input type="text" id="delSurname"></td>
+                            <td><input type="text" id="delPhone"></td>
+                            <td><input type="text" id="delAddress"></td>
+                            <td><input type="time" id="delReturnTime"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="button-wrapper">
+                <button id="add" onclick="addDelivery()">Add</button>
+            </div>
+            <!--DELIVERY BOARD-->
+            <div class="table-container">
+                <h3>Delivery Board</h3>
+                <table class="table table-bordered" id="deliveryBoard">
+                    <thead>
+                        <tr>
+                            <th>Vehicle</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Telephone</th>
+                            <th>Delivery address</th>
+                            <th>Return time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="button-wrapper">
+                <button id="clear" onclick="removeDriver()">Clear</button>
+            </div>
+            <!--DIGITAL CLOCK-->
+            <div id="clock" onload="digitalClock()"></div>
+            <!--TOASTS-->
+            <div class="toast-container">
+                <div class="position-fixed top-0 start-0 p-3" data-bs-autohide="false">
+                    <div id="staffLate" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <strong class="me-auto">Staff member is late!</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="toast-container">
+                <div class="position-fixed top-0 end-0 p-3" data-bs-autohide="false">
+                    <div id="driverLate" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <strong class="me-auto">Deliver Driver is late!</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./Bootstrap-jQuery/jquery-3.6.0.js"></script>
+        <script src="./Bootstrap-jQuery/js/bootstrap.bundle.min.js"></script>
+        <script src="wdt_app.js"></script>
+    </body>
+</html>
