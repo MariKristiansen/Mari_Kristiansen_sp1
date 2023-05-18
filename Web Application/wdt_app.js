@@ -143,6 +143,7 @@ function staffIn() {
     selectedRows.forEach(row => {
         row.classList.remove('selected');
     });
+    console.log(staffList);
 }
 
 
@@ -173,13 +174,13 @@ function validateDelivery() {
         return false;
     }
 
-    const correctPhone = /^\d{8,}/;                 //Learned from codesnippet: /\d{8,}/ from https://stackoverflow.com/questions/5416250/regex-contains-at-least-8-decimal-digitshttps://stackoverflow.com/questions/5416250/regex-contains-at-least-8-decimal-digits
+    const correctPhone = /^\d{8,}/;             //Learned from codesnippet: /\d{8,}/ from https://stackoverflow.com/questions/5416250/regex-contains-at-least-8-decimal-digitshttps://stackoverflow.com/questions/5416250/regex-contains-at-least-8-decimal-digits
     if (!telephone.match(correctPhone)) {
         alert("Phone number must be at least 8 digits.");
         return false;
     }
 
-    const correctAddress = /^[a-zA-ZæøåÆØÅ\s ]+\d+/;
+    const correctAddress = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9\s]*$/;        //Learned about ? and * at https://docs.netapp.com/us-en/oncommand-insight/config-admin/regular-expression-examples.html#example-6-showing-computer-names-with-a-pattern
     if (!address.match(correctAddress)) {
         alert("Please enter a valid address (must contain street name and house number.");
         return false;
@@ -205,7 +206,7 @@ function addDelivery() {
     }
 
     const deliveryBoardTable = document.querySelector('#deliveryBoard tbody');
-    deliveryBoardTable.innerHTML = '';
+    deliveryBoardTable.innerHTML = '';      //To prevent dublication of the previously added driver.
 
     driverList.forEach((driver, index) => {
         const newRow = document.createElement('tr');
@@ -310,7 +311,7 @@ function staffMemberIsLate() {
         returnTime.setHours(hours);
         returnTime.setMinutes(minutes);
 
-        if (returnTime > new Date()) {
+        if (returnTime < new Date()) {
             const toastContent = document.createElement('div');
             toastContent.className = 'toast-body';
 
@@ -324,12 +325,6 @@ function staffMemberIsLate() {
             const durationLine = `<div>Out of office: ${duration}</div>`;
             toastContent.innerHTML += durationLine;
 
-            const checkInButton = document.createElement('button');
-            checkInButton.textContent = 'Check in';
-            checkInButton.setAttribute('id', 'checkIn');
-            checkInButton.addEventListener('click', staffIn);
-            toastContent.appendChild(checkInButton);
-
             $("#staffLate .toast-body").remove();
             $("#staffLate").append(toastContent);
             $("#staffLate").toast("show");
@@ -340,9 +335,6 @@ function staffMemberIsLate() {
 function deliveryDriverIsLate() {
     driverList.forEach((deliveryDriver, index) => {
         const newRow = document.getElementById(`newRow${index}`);
-        if (newRow === null) {
-            return;
-        }
 
         const telephone = newRow.cells[3].innerHTML;
         const address = newRow.cells[4].innerHTML;
@@ -352,7 +344,7 @@ function deliveryDriverIsLate() {
         returnTime.setHours(hours);
         returnTime.setMinutes(minutes);
 
-        if (returnTime > new Date()) {
+        if (returnTime < new Date()) {
             const toastContent = document.createElement('div');
             toastContent.className = 'toast-body';
 
@@ -367,12 +359,6 @@ function deliveryDriverIsLate() {
 
             const addressLine = `<div>Delivery address: ${address}</div>`;
             toastContent.innerHTML += addressLine;
-
-            const clearButton = document.createElement('button');
-            clearButton.textContent = 'Clear';
-            clearButton.setAttribute('id', 'toastClear');
-            clearButton.addEventListener('click', removeDriver);
-            toastContent.appendChild(clearButton);
 
             $("#driverLate .toast-body").remove();
             $("#driverLate").append(toastContent);
