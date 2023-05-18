@@ -51,4 +51,5 @@ The project was developed using HTML, CSS, JavaScript, jQuery, Bootstrap, and OO
     <img width="350" alt="code snippet" src="https://github.com/MariKristiansen/Mari_Kristiansen_sp1/assets/125880906/de8f4995-6f39-440d-bb71-a64df83244da">
 
 - Line 386: inspirational code snippet from https://stackoverflow.com/questions/3552461/how-do-i-format-a-date-in-javascript
+    
     <img width="350" alt="code snippet" src="https://github.com/MariKristiansen/Mari_Kristiansen_sp1/assets/125880906/19d018c4-ee61-46cf-8199-a5e0dd122fc2">
