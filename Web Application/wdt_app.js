@@ -90,7 +90,7 @@ function staffOut() {
             if (minutes > 60) {
                 var hours = Math.floor(minutes / 60);
                 var remainingMinutes = minutes % 60;
-                returnTimeString = `${hours}hrs ${remainingMinutes}min`;
+                returnTimeString = `${hours}hr ${remainingMinutes}min`;
             } else if (minutes === '60') {
                 returnTimeString = '1hr';
             } else {
