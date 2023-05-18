@@ -180,7 +180,7 @@ function validateDelivery() {
         return false;
     }
 
-    const correctAddress = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9\s]*$/;        //Learned about ? and * at https://docs.netapp.com/us-en/oncommand-insight/config-admin/regular-expression-examples.html#example-6-showing-computer-names-with-a-pattern
+    const correctAddress = /^(?=.*[a-zæøåA-ZÆØÅ])(?=.*\d)[a-zæøåA-ZÆØÅ0-9\s]*$/;        //Learned about ? and * at https://docs.netapp.com/us-en/oncommand-insight/config-admin/regular-expression-examples.html#example-6-showing-computer-names-with-a-pattern
     if (!address.match(correctAddress)) {
         alert("Please enter a valid address (must contain street name and house number.");
         return false;
