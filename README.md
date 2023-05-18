@@ -47,6 +47,7 @@ The project was developed using HTML, CSS, JavaScript, jQuery, Bootstrap, and OO
 - Line 267: learned about the dataset property at https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes and https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
 - Line 310: https://www.tabnine.com/code/javascript/functions/builtins/setHours
 
+    
     <img width="350" alt="code snippet" src="https://github.com/MariKristiansen/Mari_Kristiansen_sp1/assets/125880906/de8f4995-6f39-440d-bb71-a64df83244da">
 
 - Line 386: inspirational code snippet from https://stackoverflow.com/questions/3552461/how-do-i-format-a-date-in-javascript
