@@ -1,3 +1,6 @@
+###### This project is a semester project from Noroff.
+---
+
 # WeDeliverTECH <img width="150" alt="company logo" src="https://user-images.githubusercontent.com/125880906/236834585-9ad0a06a-3f72-4cae-9c50-a96f21181200.png">
 
 ## Reception Management dashboard
